@@ -9,7 +9,7 @@ Telegram Bot
 !pip install nest-asyncio
 
 import asyncio
-import nest_asyncio
+#import nest_asyncio
 import logging
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
@@ -26,12 +26,12 @@ dp = Dispatcher(bot, storage=storage)
 logging.basicConfig(level=logging.INFO)
 
 # избавление от вложенных циклов запуска ядра
-nest_asyncio.apply()
+#nest_asyncio.apply()
 
-async def main():
-    print("begin")
-    response = await asyncio.sleep(2)
-    print("the end", response)
+#async def main():
+#    print("begin")
+#    response = await asyncio.sleep(2)
+#    print("the end", response)
 
 loop = asyncio.get_event_loop() 
 loop.run_until_complete(main())
