@@ -4,10 +4,8 @@
 Telegram Bot
 
 """
-
-!pip install aiogram
-!pip install nest-asyncio
-
+#!pip install aiogram
+#!pip install nest-asyncio
 import asyncio
 #import nest_asyncio
 import logging
