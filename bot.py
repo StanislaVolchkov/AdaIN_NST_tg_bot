@@ -32,7 +32,7 @@ logging.basicConfig(level=logging.INFO)
 #    print("the end", response)
 
 loop = asyncio.get_event_loop() 
-loop.run_until_complete(main())
+#loop.run_until_complete(main())
 
 # добавление клавиатуры
 kb = ReplyKeyboardMarkup(resize_keyboard=True)
