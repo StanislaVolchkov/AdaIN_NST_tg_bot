@@ -20,12 +20,13 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from models import nst_model
 import zipfile
 import os
+from urllib.parse import urljoin
 
 TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
 CONNECTION_TYPE = 'WEBHOOK'
 WEBHOOK_HOST = 'https://my-neural-style-transfer.herokuapp.com'
 WEBHOOK_PATH = f'/'
-WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
+WEBHOOK_URL = urljoin(WEBHOOK_HOST, WEBHOOK_PATH)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
