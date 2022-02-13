@@ -215,7 +215,9 @@ def get_transfer(content, style, percent, path):
 
     content, style = next(iter(test_loader))
     alpha = percent/100
-    output = model.sample(content, style, alpha)
+    model.eval()
+    with torch.no_grad():
+      output = model.sample(content, style, alpha)
     bio = tensortophoto(output)
 
     return bio
