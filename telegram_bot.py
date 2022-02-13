@@ -21,7 +21,7 @@ from os import environ
 TOKEN = environ.get('API_TOKEN')
 CONNECTION_TYPE = environ.get('CONNECTION_TYPE')
 WEBHOOK_HOST = environ.get('WEBHOOK_HOST')
-WEBHOOK_PORT = int(environ.get("WEBHOOK_PORT"))
+WEBHOOK_PORT = 5000
 WEBHOOK_URL_PATH = environ.get('WEBHOOK_URL_PATH')
 WEBHOOK_URL = f"https://{WEBHOOK_HOST}:{WEBHOOK_PORT}{WEBHOOK_URL_PATH}"
 
