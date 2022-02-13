@@ -23,10 +23,7 @@ from os import environ
 
 TOKEN = environ.get('API_TOKEN')
 CONNECTION_TYPE = environ.get('CONNECTION_TYPE')
-WEBHOOK_HOST = environ.get('WEBHOOK_HOST')
-WEBHOOK_PORT = 5000
-WEBHOOK_URL_PATH = environ.get('WEBHOOK_URL_PATH')
-WEBHOOK_URL = f"https://{WEBHOOK_HOST}:{WEBHOOK_PORT}{WEBHOOK_URL_PATH}"
+WEBHOOK_URL = f"hhttps://my-neural-style-transfer.herokuapp.com/{TOKEN}"
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -145,7 +142,7 @@ if __name__ == '__main__':
     webhook_settings = False if CONNECTION_TYPE == 'POLLING' else True
     if webhook_settings:
         WEBAPP_PORT = 5000
-        WEBAPP_HOST = environ.get("WEBAPP_HOST")
+        WEBAPP_HOST = '0.0.0.0'
         start_webhook(
             dispatcher=dp,
             webhook_path=WEBHOOK_URL_PATH,
