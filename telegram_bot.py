@@ -16,14 +16,13 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from models import nst_model
 import zipfile
-from dotenv import load_dotenv
+import os
 
-load_dotenv()
-
-CONNECTION_TYPE = environ.get('CONNECTION_TYPE')
-WEBHOOK_HOST = environ.get('WEBHOOK_HOST')
-WEBHOOK_PORT = int(environ.get("WEBHOOK_PORT"))
-WEBHOOK_URL_PATH = environ.get('WEBHOOK_URL_PATH')
+TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
+CONNECTION_TYPE = 'WEBHOOK'
+WEBHOOK_HOST = os.environ.get("HOST", '0.0.0.0')
+WEBHOOK_PORT = int(os.environ.get("PORT", 5000)) 
+WEBHOOK_URL_PATH = os.environ.get('WEBHOOK_URL_PATH')
 WEBHOOK_URL = f"https://{WEBHOOK_HOST}:{WEBHOOK_PORT}{WEBHOOK_URL_PATH}"
 
 # Configure logging
