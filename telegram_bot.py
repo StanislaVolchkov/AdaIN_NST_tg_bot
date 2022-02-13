@@ -19,6 +19,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from models import nst_model
 import zipfile
+import os
 
 TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
 CONNECTION_TYPE = 'WEBHOOK'
@@ -140,8 +141,8 @@ if __name__ == '__main__':
 
     webhook_settings = False if CONNECTION_TYPE == 'POLLING' else True
     if webhook_settings:
-        WEBAPP_PORT = 443
-        WEBAPP_HOST = 'localhost'
+        WEBAPP_PORT = os.environ['PORT']
+        WEBAPP_HOST = '0.0.0.0'
         start_webhook(
             dispatcher=dp,
             webhook_path=WEBHOOK_PATH,
