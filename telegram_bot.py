@@ -16,11 +16,25 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from models import nst_model
 import zipfile
+from dotenv import load_dotenv
+
+load_dotenv()
+
+CONNECTION_TYPE = environ.get('CONNECTION_TYPE')
+WEBHOOK_HOST = environ.get('WEBHOOK_HOST')
+WEBHOOK_PORT = int(environ.get("WEBHOOK_PORT"))
+WEBHOOK_URL_PATH = environ.get('WEBHOOK_URL_PATH')
+WEBHOOK_URL = f"https://{WEBHOOK_HOST}:{WEBHOOK_PORT}{WEBHOOK_URL_PATH}"
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
 
 #создаем самого бота
+loop = asyncio.get_event_loop() 
 storage = MemoryStorage()
 TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
-bot = Bot(token=TOKEN)
+#App_URL = f'https://my-neural-style-transfer.herokuapp.com/{TOKEN}'
+bot = Bot(token=TOKEN, loop=loop)
 dp = Dispatcher(bot, storage=storage)
 logging.basicConfig(level=logging.INFO)
 
@@ -36,7 +50,6 @@ with zipfile.ZipFile(wth_zip, 'r') as zip_file:
 #    response = await asyncio.sleep(2)
 #    print("the end", response)
 
-loop = asyncio.get_event_loop() 
 #loop.run_until_complete(main())
 
 # добавление клавиатуры
@@ -115,6 +128,31 @@ def all_handlers(dp: Dispatcher):
 all_handlers(dp)
 
 # запуск самого бота
+async def on_startup(dp):
+    await bot.set_webhook(WEBHOOK_URL)
+    logging.warning("Hello!")
+    
+async def on_shutdown(dp):
+    logging.warning("Shutting down..")
+    await dp.storage.close()
+    await dp.storage.wait_closed()
+    logging.warning("Bye!")
+
 if __name__ == '__main__':
-   executor.start_polling(dp, skip_updates=True)
+
+    webhook_settings = False if CONNECTION_TYPE == 'POLLING' else True
+    if webhook_settings:
+        WEBAPP_PORT = int(environ.get("WEBAPP_PORT"))
+        WEBAPP_HOST = environ.get("WEBAPP_HOST")
+        start_webhook(
+            dispatcher=dp,
+            webhook_path=WEBHOOK_URL_PATH,
+            on_startup=on_startup,
+            on_shutdown=on_shutdown,
+            skip_updates=True,
+            host=WEBAPP_HOST,
+            port=WEBAPP_PORT,
+        )
+    else:
+        executor.start_polling(dp, skip_updates=True)
 
