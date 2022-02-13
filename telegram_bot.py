@@ -20,7 +20,8 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from models import nst_model
 import zipfile
 
-TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"CONNECTION_TYPE = environ.get('CONNECTION_TYPE')
+TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
+CONNECTION_TYPE = 'WEBHOOK'
 WEBHOOK_HOST = 'https://git.heroku.com'
 WEBHOOK_PATH = '/my-neural-style-transfer.git'
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
