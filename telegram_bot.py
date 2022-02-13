@@ -7,6 +7,9 @@ Telegram Bot
 #!pip install aiogram
 #!pip install nest-asyncio
 import asyncio
+from aiohttp import web
+from aiogram.dispatcher.webhook import SendMessage, get_new_configured_app
+from aiogram.utils.executor import start_webhook
 #import nest_asyncio
 import logging
 from aiogram import Bot, Dispatcher, executor, types
