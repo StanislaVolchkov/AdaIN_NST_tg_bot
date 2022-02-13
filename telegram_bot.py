@@ -22,8 +22,8 @@ import zipfile
 
 TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
 CONNECTION_TYPE = 'WEBHOOK'
-WEBHOOK_HOST = 'https://git.heroku.com'
-WEBHOOK_PATH = '/my-neural-style-transfer.git'
+WEBHOOK_HOST = 'https://my-neural-style-transfer.herokuapp.com'
+WEBHOOK_PATH = '/bot'
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
 # Configure logging
