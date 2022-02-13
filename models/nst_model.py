@@ -84,7 +84,7 @@ class AdaIN(nn.Module):
 class Encoder(nn.Module):
   def __init__(self):
     super().__init__()
-    vgg = torchvision.models.vgg19(pretrained=True).features
+    vgg = torchvision.models.vgg19(pretrained=False).features
     self.layer1 = vgg[:2]
     self.layer2 = vgg[2:7]
     self.layer3 = vgg[7:12]
