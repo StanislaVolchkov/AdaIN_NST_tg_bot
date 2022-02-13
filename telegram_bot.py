@@ -144,7 +144,7 @@ if __name__ == '__main__':
 
     webhook_settings = False if CONNECTION_TYPE == 'POLLING' else True
     if webhook_settings:
-        WEBAPP_PORT = int(environ.get("WEBAPP_PORT"))
+        WEBAPP_PORT = 5000
         WEBAPP_HOST = environ.get("WEBAPP_HOST")
         start_webhook(
             dispatcher=dp,
