@@ -23,7 +23,7 @@ import zipfile
 TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
 CONNECTION_TYPE = 'WEBHOOK'
 WEBHOOK_HOST = 'https://my-neural-style-transfer.herokuapp.com'
-WEBHOOK_PATH = f'/bot{TOKEN}/setWebhook'
+WEBHOOK_PATH = f'/bot'
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
 # Configure logging
@@ -32,7 +32,6 @@ logging.basicConfig(level=logging.INFO)
 #создаем самого бота
 loop = asyncio.get_event_loop() 
 storage = MemoryStorage()
-#App_URL = f'https://my-neural-style-transfer.herokuapp.com/{TOKEN}'
 bot = Bot(token=TOKEN, loop=loop)
 dp = Dispatcher(bot, storage=storage)
 logging.basicConfig(level=logging.INFO)
@@ -132,7 +131,7 @@ async def on_startup(dp):
     logging.warning("Hello!")
     
 async def on_shutdown(dp):
-    logging.warning("Shutting down..")
+    logging.warning("Shutting down...")
     await dp.storage.close()
     await dp.storage.wait_closed()
     logging.warning("Bye!")
