@@ -15,6 +15,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from models import nst_model
+import zipFile
 
 #создаем самого бота
 storage = MemoryStorage()
@@ -22,6 +23,10 @@ TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot, storage=storage)
 logging.basicConfig(level=logging.INFO)
+
+wth_zip = 'models_wth/weights.pth.zip'
+with zipfile.ZipFile(wth_zip, 'r'):
+    wth_zip.extract('weights.pth', '.')
 
 # избавление от вложенных циклов запуска ядра
 #nest_asyncio.apply()
@@ -59,7 +64,7 @@ async def get_help_info(msg: types.Message):
 async def getting_model_output(msg, state):
   await msg.answer(f"Все будет в лучшем виде через пару секунд!")
   async with state.proxy() as data:
-    result = nst_model.get_transfer(data['content'], data['style'], data['percent'], 'view?usp=sharing')
+    result = nst_model.get_transfer(data['content'], data['style'], data['percent'], 'weights.pth')
   await bot.send_photo(msg.chat.id, photo=result)
 
 # задаем админку для осмысленного получения сообщений
