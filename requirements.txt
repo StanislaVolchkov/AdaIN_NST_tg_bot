@@ -1,3 +1,4 @@
 aiogram==2.19
 Pillow==7.1.2
-https://download.pytorch.org/whl/cpu/torch_stable.html
+https://download.pytorch.org/whl/cu111/torch-1.10.0%2Bcu111-cp37-cp37m-linux_x86_64.whl
+https://download.pytorch.org/whl/cu111/torchvision-0.11.1%2Bcu111-cp37-cp37m-linux_x86_64.whl
