@@ -19,10 +19,8 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from models import nst_model
 import zipfile
-from os import environ
 
-TOKEN = environ.get('API_TOKEN')
-CONNECTION_TYPE = environ.get('CONNECTION_TYPE')
+TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"CONNECTION_TYPE = environ.get('CONNECTION_TYPE')
 WEBHOOK_HOST = 'https://git.heroku.com'
 WEBHOOK_PATH = '/my-neural-style-transfer.git'
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
@@ -33,7 +31,6 @@ logging.basicConfig(level=logging.INFO)
 #создаем самого бота
 loop = asyncio.get_event_loop() 
 storage = MemoryStorage()
-#TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
 #App_URL = f'https://my-neural-style-transfer.herokuapp.com/{TOKEN}'
 bot = Bot(token=TOKEN, loop=loop)
 dp = Dispatcher(bot, storage=storage)
