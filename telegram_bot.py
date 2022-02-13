@@ -23,7 +23,7 @@ import zipfile
 TOKEN = "5163951677:AAGYMXeWn-3RsQ31XOL8MPrHegxc_77EoRQ"
 CONNECTION_TYPE = 'WEBHOOK'
 WEBHOOK_HOST = 'https://my-neural-style-transfer.herokuapp.com'
-WEBHOOK_PATH = '/bot'
+WEBHOOK_PATH = f'/bot{TOKEN}/setWebhook'
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
 # Configure logging
@@ -141,7 +141,7 @@ if __name__ == '__main__':
 
     webhook_settings = False if CONNECTION_TYPE == 'POLLING' else True
     if webhook_settings:
-        WEBAPP_PORT = 80
+        WEBAPP_PORT = 8443
         WEBAPP_HOST = '0.0.0.0'
         start_webhook(
             dispatcher=dp,
