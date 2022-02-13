@@ -23,6 +23,10 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher(bot, storage=storage)
 logging.basicConfig(level=logging.INFO)
 
+# Загрузка весов модели
+!wget https://drive.google.com/file/d/1-bCJeKkH0bEoIXRhotb-mOdUB9JXtvSb/view?usp=sharing
+!mv view?usp=sharing weights.pth
+
 # избавление от вложенных циклов запуска ядра
 #nest_asyncio.apply()
 
@@ -59,7 +63,7 @@ async def get_help_info(msg: types.Message):
 async def getting_model_output(msg, state):
   await msg.answer(f"Все будет в лучшем виде через пару секунд!")
   async with state.proxy() as data:
-    result = nst_model.get_transfer(data['content'], data['style'], data['percent'], 'https://drive.google.com/file/d/1-bCJeKkH0bEoIXRhotb-mOdUB9JXtvSb/view?usp=sharing')
+    result = nst_model.get_transfer(data['content'], data['style'], data['percent'], 'weights.pth')
   await bot.send_photo(msg.chat.id, photo=result)
 
 # задаем админку для осмысленного получения сообщений
