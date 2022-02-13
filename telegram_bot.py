@@ -25,8 +25,8 @@ dp = Dispatcher(bot, storage=storage)
 logging.basicConfig(level=logging.INFO)
 
 wth_zip = 'models_wth/weights.pth.zip'
-with zipfile.ZipFile(wth_zip, 'r'):
-    wth_zip.extract('weights.pth', '.')
+with zipfile.ZipFile(wth_zip, 'r') as zip_file:
+    zip_file.extract('weights.pth', '.')
 
 # избавление от вложенных циклов запуска ядра
 #nest_asyncio.apply()
