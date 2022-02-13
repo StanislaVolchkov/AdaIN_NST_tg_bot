@@ -142,7 +142,7 @@ if __name__ == '__main__':
     webhook_settings = False if CONNECTION_TYPE == 'POLLING' else True
     if webhook_settings:
         WEBAPP_PORT = 80
-        WEBAPP_HOST = '91.108.6.120'
+        WEBAPP_HOST = '0.0.0.0'
         start_webhook(
             dispatcher=dp,
             webhook_path=WEBHOOK_PATH,
