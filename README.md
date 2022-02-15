@@ -42,7 +42,7 @@ Note: В файле models/nst_model.py представлена обрезан�
 
 ## Планируемые обновления 
 
-* Более гибкая настройка стилизации AdaIN(Смешивание двух стилей при переносе на изображение)
+* Более гибкая настройка стилизации AdaIN(Смешивание двух стилей при переносе на изображение) https://github.com/xunhuang1995/AdaIN-style
 
 * MUNIT
 
@@ -50,5 +50,18 @@ Note: В файле models/nst_model.py представлена обрезан�
 
 * Additional Constraints https://distill.pub/2018/differentiable-parameterizations/#section-styletransfer
 
-* SUPRES 
+* Feature Visualization https://distill.pub/2017/feature-visualization/
+
+* Post-processing https://github.com/titu1994/Neural-Style-Transfer
+
+* https://github.com/ycjing/Neural-Style-Transfer-Papers
+
+* SUPRES https://www.libhunt.com/r/pytorch-AdaIN
+
+## References
+
+https://github.com/irasin/Pytorch_AdaIN
+
+https://github.com/EugenHotaj/pytorch-generative
+
 
