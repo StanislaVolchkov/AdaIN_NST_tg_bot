@@ -146,25 +146,25 @@ async def get_prepared_style(msg: types.Message):
     await types.ChatActions.upload_photo()
     media = types.MediaGroup()
 
-    media.attach_photo(types.InputFile("images/styles/крик.jpg"), 'Эдвард Мунк "Крик"')
-    media.attach_photo(types.InputFile("images/styles/Женщина_с_шляпой.jpg"), 'Фанри Матис "Женщина с шляпой"')
-    media.attach_photo(types.InputFile("images/styles/Эшвилл.jpg"), 'Виллем де Кунинг "Эшвилл"')
-    media.attach_photo(types.InputFile("images/styles/mondrian.jpg"), 'Пит Модриан "Композиция в коричневом и сером"')
-    media.attach_photo(types.InputFile("images/styles/pencil_sketch.jpg"), 'Набросок женщины карандашом')
+    media.attach_photo(types.InputFile("images/style/крик.jpg"), 'Эдвард Мунк "Крик"')
+    media.attach_photo(types.InputFile("images/style/Женщина_с_шляпой.jpg"), 'Фанри Матис "Женщина с шляпой"')
+    media.attach_photo(types.InputFile("images/style/Эшвилл.jpg"), 'Виллем де Кунинг "Эшвилл"')
+    media.attach_photo(types.InputFile("images/style/mondrian.jpg"), 'Пит Модриан "Композиция в коричневом и сером"')
+    media.attach_photo(types.InputFile("images/style/pencil_sketch.jpg"), 'Набросок женщины карандашом')
     await msg.answer_media_group(media)
 
   else:
     state = dp.get_current().current_state()
     if msg.text == 'Эдвард Мунк "Крик"':
-      await state.update_data(style= "images/styles/крик.jpg")
+      await state.update_data(style= "images/style/крик.jpg")
     elif msg.text == 'Фанри Матис "Женщина с шляпой"':
-      await state.update_data(style= "images/styles/Женщина_с_шляпой.jpg")
+      await state.update_data(style= "images/style/Женщина_с_шляпой.jpg")
     elif msg.text == 'Виллем де Кунинг "Эшвилл"':
-      await state.update_data(style= "images/styles/Эшвилл.jpg")
+      await state.update_data(style= "images/style/Эшвилл.jpg")
     elif msg.text == 'Пит Модриан "Композиция в коричневом и сером"':
-      await state.update_data(style= "images/styles/mondrian.jpg")
+      await state.update_data(style= "images/style/mondrian.jpg")
     elif msg.text == 'Набросок женщины карандашом':
-      await state.update_data(style= "images/styles/pencil_sketch.jpg")
+      await state.update_data(style= "images/style/pencil_sketch.jpg")
 
     await msg.answer(f'\U00002705Вы выбрали: *{msg.text}*')
     await FSMAdmin.next()
@@ -175,7 +175,7 @@ async def getting_model_output(msg, state):
   await msg.answer(f"Все будет в лучшем виде через пару секунд!\U0001F44C")
   await msg.answer_sticker(r'CAACAgIAAxkBAAED-QABYhGaUOcWpoUeaMAneSWcpL0da4MAApwTAALu0IhKTrrd85tUU3cjBA')
   async with state.proxy() as data:
-    result = nst_model.get_transfer(data['content'], data['style'], data['percent'], '/content/nst_weights.pth')
+    result = nst_model.get_transfer(data['content'], data['style'], data['percent'], 'weights.pth')
   await bot.send_photo(msg.chat.id, photo=result, reply_markup=kb)
 
 # задаем админку для осмысленного получения сообщений
