@@ -32,8 +32,8 @@ class NST_Dataset(Dataset):
     return 1
 
   def __getitem__(self, idx):
-    content_image = Image.open(self.content_image)
-    style_image = Image.open(self.style_image)
+    content_image = Image.open(self.content_image).convert('RGB')
+    style_image = Image.open(self.style_image).convert('RGB')
     content_image = self.transform(content_image)
     style_image = self.transform(style_image)
     return content_image, style_image
