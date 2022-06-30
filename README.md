@@ -44,7 +44,23 @@ Note: В файле models/nst_model.py представлена обрезан�
 
 * Более гибкая настройка стилизации AdaIN(Смешивание двух стилей при переносе на изображение) https://github.com/xunhuang1995/AdaIN-style
 
-* MUNIT
+* MUNIT:
+https://github.com/NVlabs/MUNIT github с MUNIT
+
+https://medium.com/codex/review-munit-multimodal-unsupervised-image-to-image-translation-gan-10e2c08a1b6e  статья по MUNIT 
+
+Различные углубления munit:
+
+https://arxiv.org/pdf/2007.15651.pdf
+
+https://openaccess.thecvf.com/content_CVPR_2019/papers/Wu_TransGaGa_Geometry-Aware_Unsupervised_Image-To-Image_Translation_CVPR_2019_paper.pdf
+
+https://openaccess.thecvf.com/content_ECCV_2018/papers/Aaron_Gokaslan_Improving_Shape_Deformation_ECCV_2018_paper.pdf
+
+https://openaccess.thecvf.com/content_ECCV_2018/papers/Liang_Generative_Semantic_Manipulation_ECCV_2018_paper.pdf
+
++ Туториал по использованию предобученного CycleGan:
+https://proglib.io/p/ispolzuem-cyclegan-dlya-primeneniya-stilya-k-video-poluchennomu-s-veb-kamery-2021-06-08
 
 * Improved Optimization https://distill.pub/2018/differentiable-parameterizations/#section-styletransfer
 
@@ -57,6 +73,10 @@ Note: В файле models/nst_model.py представлена обрезан�
 * https://github.com/ycjing/Neural-Style-Transfer-Papers
 
 * SUPRES https://www.libhunt.com/r/pytorch-AdaIN
+
+* DEEP PHOTO https://habr.com/ru/post/402665/ 
+
+https://kushaj.medium.com/all-you-need-for-photorealistic-style-transfer-in-pytorch-acb099667fc8 статья 2019г.
 
 ## References
 
